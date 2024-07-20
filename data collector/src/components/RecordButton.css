@@ -1,0 +1,26 @@
+.recording-light {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: grey;
+    margin-bottom: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .recording-light.active {
+    background-color: red;
+    animation: blink-animation 1s infinite;
+  }
+  
+  @keyframes blink-animation {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
