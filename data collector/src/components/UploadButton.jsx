@@ -6,7 +6,7 @@ const UploadButton = ({ audioBlob }) => {
     formData.append('file', audioBlob);
 
     try {
-      const response = await fetch('BACKEND_ENDPOINT', {
+      const response = await fetch('http://localhost:8080/api/audios', {
         method: 'POST',
         body: formData,
       });
@@ -23,7 +23,7 @@ const UploadButton = ({ audioBlob }) => {
   };
 
   return (
-    <button onClick={handleUpload} disabled={!audioBlob}>
+    <button className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mt-3' onClick={handleUpload} disabled={!audioBlob}>
       Upload
     </button>
   );

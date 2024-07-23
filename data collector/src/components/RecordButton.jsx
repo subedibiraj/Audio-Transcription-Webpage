@@ -52,11 +52,11 @@ const RecordButton = ({ onRecordFinish }) => {
     <div>
       <div className={`recording-light ${isRecording ? 'active' : ''}`}></div>
       {isRecording ? (
-        <button onClick={stopRecording}>
+        <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={stopRecording}>
           Stop Recording ({countdown})
         </button>
       ) : (
-        <button onClick={startRecording}>Record</button>
+        <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={startRecording}>Record</button>
       )}
     </div>
   );
