@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const RegistrationForm = () => {
     password: "",
     about: ""
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,6 +34,7 @@ const RegistrationForm = () => {
       if (response.ok) {
         const data = await response.json();
         console.log("Registration successful", data);
+        navigate('/login');
       } else {
         console.error("Registration failed", response.statusText);
       }

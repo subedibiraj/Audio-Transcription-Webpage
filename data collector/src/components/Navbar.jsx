@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,9 +7,8 @@ const Navbar = () => {
   return (
     <div className="bg-blue-500">
       <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
-      <Link className="text-3xl font-bold leading-none" to="/">
+        <Link className="text-3xl font-bold leading-none" to="/">
           <svg className="h-10" alt="logo" viewBox="0 0 10240 10240">
-            {/* Ignored Path Tag */}
           </svg>
         </Link>
         <div className="lg:hidden">
@@ -24,34 +23,16 @@ const Navbar = () => {
           </button>
         </div>
         <ul className={`absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6 ${isOpen ? 'block' : 'hidden'}`}>
-          <li><a className="text-sm text-gray-400 hover:text-gray-500" href="#">Home</a></li>
-          <li className="text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-            </svg>
-          </li>
-          <li><a className="text-sm text-blue-600 font-bold" href="#">About Us</a></li>
-          <li className="text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-            </svg>
-          </li>
-          <li><a className="text-sm text-gray-400 hover:text-gray-500" href="#">Services</a></li>
-          <li className="text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-            </svg>
-          </li>
-          <li><a className="text-sm text-gray-400 hover:text-gray-500" href="#">Pricing</a></li>
-          <li className="text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-            </svg>
-          </li>
-          <li><a className="text-sm text-gray-400 hover:text-gray-500" href="#">Contact</a></li>
+          <li><Link className="text-sm text-gray-400 hover:text-gray-500" to="/">Home</Link></li>
+          <li><Link className="text-sm text-blue-600 font-bold" to="/about">About Us</Link></li>
+          <li><Link className="text-sm text-gray-400 hover:text-gray-500" to="/services">Services</Link></li>
+          <li><Link className="text-sm text-gray-400 hover:text-gray-500" to="/pricing">Pricing</Link></li>
+          <li><Link className="text-sm text-gray-400 hover:text-gray-500" to="/contact">Contact</Link></li>
         </ul>
-        <a className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200" href="#">Sign In</a>
-        <a className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Sign up</a>
+        <div className="hidden lg:flex lg:items-center lg:space-x-4">
+          <Link className="py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200" to="/login">Sign In</Link>
+          <Link className="py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" to="/signup">Sign Up</Link>
+        </div>
       </nav>
       <div className={`navbar-menu relative z-50 ${isOpen ? 'block' : 'hidden'}`}>
         <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
@@ -59,7 +40,6 @@ const Navbar = () => {
           <div className="flex items-center mb-8">
             <a className="mr-auto text-3xl font-bold leading-none" href="#">
               <svg className="h-12" alt="logo" viewBox="0 0 10240 10240">
-                {/* Ignored Path Tag */}
               </svg>
             </a>
             <button className="navbar-close" onClick={() => setIsOpen(false)}>
@@ -68,34 +48,16 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-          <div>
-            <ul>
-              <li className="mb-1">
-                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Home</a>
-              </li>
-              <li className="mb-1">
-                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">About Us</a>
-              </li>
-              <li className="mb-1">
-                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Services</a>
-              </li>
-              <li className="mb-1">
-                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Pricing</a>
-              </li>
-              <li className="mb-1">
-                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
-          <div className="mt-auto">
-            <div className="pt-6">
-            <Link className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200" to="/login">Sign In</Link>
-            <Link className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" to="/signup">Sign up</Link>
-            </div>
-            <p className="my-4 text-xs text-center text-gray-400">
-              <span>Copyright © 2021</span>
-            </p>
-          </div>
+          <ul>
+            {/* Mobile view links */}
+            <li><Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" to="/">Home</Link></li>
+            <li><Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" to="/about">About Us</Link></li>
+            <li><Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" to="/services">Services</Link></li>
+            <li><Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" to="/pricing">Pricing</Link></li>
+            <li><Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" to="/contact">Contact</Link></li>
+            <li><Link className="block py-2 px-6 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" to="/login">Sign In</Link></li>
+            <li><Link className="block py-2 px-6 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded" to="/signup">Sign Up</Link></li>
+          </ul>
         </nav>
       </div>
     </div>
