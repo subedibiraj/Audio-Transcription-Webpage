@@ -4,16 +4,16 @@ import './RecordButton.css';
 const RecordButton = ({ onRecordFinish }) => {
   const [isRecording, setIsRecording] = useState(false);
   const [mediaRecorder, setMediaRecorder] = useState(null);
-  const [countdown, setCountdown] = useState(10); 
+  const [countdown, setCountdown] = useState(30); // Set the initial countdown to 30 seconds
 
   useEffect(() => {
     let timer = null;
     if (isRecording && countdown > 0) {
       timer = setTimeout(() => {
         setCountdown(countdown - 1);
-      }, 1000);
+      }, 1000); // Decrease countdown every second
     } else if (countdown === 0) {
-      stopRecording();
+      stopRecording(); // Automatically stop recording when countdown reaches 0
     }
     return () => clearTimeout(timer);
   }, [isRecording, countdown]);
@@ -26,7 +26,7 @@ const RecordButton = ({ onRecordFinish }) => {
       recorder.start();
 
       setIsRecording(true);
-      setCountdown(10);
+      setCountdown(30); // Reset countdown to 30 seconds when starting recording
 
       const chunks = [];
       recorder.ondataavailable = (event) => {
@@ -35,7 +35,7 @@ const RecordButton = ({ onRecordFinish }) => {
 
       recorder.onstop = () => {
         const blob = new Blob(chunks, { type: 'audio/wav' });
-        onRecordFinish(blob);
+        onRecordFinish(blob); // Call the parent callback with the recorded blob
       };
     } catch (error) {
       console.error('Error accessing microphone:', error);
@@ -43,20 +43,30 @@ const RecordButton = ({ onRecordFinish }) => {
   };
 
   const stopRecording = () => {
-    mediaRecorder.stop();
+    if (mediaRecorder) {
+      mediaRecorder.stop(); // Stop the media recorder
+    }
     setIsRecording(false);
-    setCountdown(10);
+    setCountdown(30); // Reset countdown after stopping the recording
   };
 
   return (
     <div>
       <div className={`recording-light ${isRecording ? 'active' : ''}`}></div>
       {isRecording ? (
-        <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={stopRecording}>
+        <button
+          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          onClick={stopRecording}
+        >
           Stop Recording ({countdown})
         </button>
       ) : (
-        <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={startRecording}>Record</button>
+        <button
+          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          onClick={startRecording}
+        >
+          Record
+        </button>
       )}
     </div>
   );

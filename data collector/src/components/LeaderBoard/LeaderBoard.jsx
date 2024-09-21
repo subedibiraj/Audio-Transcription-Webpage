@@ -48,6 +48,7 @@ const Leaderboard = () => {
   };
 
   return (
+    <>
     <div className="relative container px-4 mx-auto">
       <form action="" className="max-w-screen-sm mt-12 mx-auto w-full px-4 md:px-0">
         <input
@@ -118,6 +119,7 @@ const Leaderboard = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

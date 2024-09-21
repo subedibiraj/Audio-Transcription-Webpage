@@ -1,12 +1,16 @@
 .card {
-  border: 1px solid #272424;
-  padding: 16px;
-  margin: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgb(231, 228, 228);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  background-color: #f8f9fa; /* Light grey background */
+  border: 1px solid #dee2e6; /* Slight border for definition */
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px; /* Rounded corners for a modern look */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  color: #333; /* Dark grey text color for contrast */
+}
+
+.card p {
+  font-size: 16px; /* Increase font size for readability */
+  line-height: 1.5; /* More readable line spacing */
 }
 
 audio {
@@ -16,6 +20,22 @@ audio {
 
 button {
   margin-top: 8px;
+}
+
+/* Fade Transition */
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }
 
 

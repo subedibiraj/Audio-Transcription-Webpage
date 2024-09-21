@@ -1,0 +1,8 @@
+[build]
+  functions = "netlify/functions"  # Path to your Netlify functions
+  publish = "dist"                 # Folder where your built files are located (change to `build` if using React)
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
